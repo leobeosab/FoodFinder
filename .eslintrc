@@ -1,0 +1,14 @@
+{
+  "globals": {
+    "navigator": false,
+    "test": false,
+  },
+  "extends": "eslint-config-airbnb",
+  "rules": {
+  "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+  "no-trailing-spaces": "off",
+  "import/extensions": "off",
+  "no-param-reassign": "off",
+  "max-len": "off",
+  }
+}
