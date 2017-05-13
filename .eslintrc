@@ -2,6 +2,7 @@
   "globals": {
     "navigator": false,
     "test": false,
+    "fetch": false,
   },
   "extends": "eslint-config-airbnb",
   "rules": {

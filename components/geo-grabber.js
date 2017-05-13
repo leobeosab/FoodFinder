@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 
+import APIController from './api-controller';
+
 class GeoGrabber extends Component {
 
   constructor(props) {
@@ -11,13 +13,13 @@ class GeoGrabber extends Component {
     };
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     navigator.geolocation.getCurrentPosition(
-      (position) => {
-        const initialLocation = JSON.stringify(position);
-        this.setState({ initialLocation });
+      async (position) => {
+        const data = await APIController.get_near_locations(position.coords.latitude, position.coords.longitude);
+        this.setState({ initialLocation: JSON.stringify(data) });
       },
-      error => JSON.stringify(error),
+      error => this.setState({ initialLocation: error }),
       { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
     );
   }
