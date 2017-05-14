@@ -33,4 +33,8 @@ class GeoGrabber extends Component {
   }
 }
 
+GeoGrabber.navigationOptions = {
+  title: 'Food Finder',
+};
+
 export default GeoGrabber;

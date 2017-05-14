@@ -4,14 +4,14 @@
  */
 
 import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, Text, View } from 'react-native';
+import { AppRegistry } from 'react-native';
 
-import GeoGrabber from './components/geo-grabber';
+import MainNavigation from './components/main-navigation';
 
 export default class RestaurantFinder extends Component {
   render() {
     return (
-      <GeoGrabber />
+      <MainNavigation />
     );
   }
 }
