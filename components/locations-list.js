@@ -1,23 +1,25 @@
+/* eslint no-undef: "off" */
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { ScrollView } from 'react-native';
 
 import APIController from './api-controller';
+import Place from './place';
 
-class GeoGrabber extends Component {
+class LocationsList extends Component {
 
   constructor(props) {
     super(props);
 
     this.state = {
-      initialLocation: '',
+      locations: [],
     };
   }
 
   async componentDidMount() {
-    navigator.geolocation.getCurrentPosition(
+    await navigator.geolocation.getCurrentPosition(
       async (position) => {
         const data = await APIController.get_near_locations(position.coords.latitude, position.coords.longitude);
-        this.setState({ initialLocation: JSON.stringify(data) });
+        this.setState({ locations: data.results });
       },
       error => this.setState({ initialLocation: error }),
       { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
@@ -26,15 +28,19 @@ class GeoGrabber extends Component {
 
   render() {
     return (
-      <View>
-        <Text> {this.state.initialLocation} </Text>
-      </View>
+      <ScrollView>
+        {
+          this.state.locations.map(location => (
+            <Place location={location} key={location.name} />
+          ))
+        }
+      </ScrollView>
     );
   }
 }
 
-GeoGrabber.navigationOptions = {
+LocationsList.navigationOptions = {
   title: 'Food Finder',
 };
 
-export default GeoGrabber;
+export default LocationsList;

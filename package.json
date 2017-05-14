@@ -1,5 +1,5 @@
 {
-  "name": "RestaurantFinder",
+  "name": "FoodFinder",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -8,6 +8,7 @@
     "lint": "eslint --fix *.js"
   },
   "dependencies": {
+    "prop-types": "^15.5.10",
     "react": "16.0.0-alpha.6",
     "react-native": "0.43.4",
     "react-native-responsive-image": "^2.1.0",

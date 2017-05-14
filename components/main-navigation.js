@@ -1,11 +1,11 @@
 import React from 'react';
 import { StackNavigator } from 'react-navigation';
 
-import GeoGrabber from './geo-grabber';
+import LocationList from './locations-list';
 
 const MainNav = StackNavigator({
   Home: {
-    screen: GeoGrabber,
+    screen: LocationList,
   },
 });
 

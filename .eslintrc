@@ -10,6 +10,7 @@
   "no-trailing-spaces": "off",
   "import/extensions": "off",
   "no-param-reassign": "off",
+  "react/forbid-prop-types": "off",
   "max-len": "off",
   }
 }
