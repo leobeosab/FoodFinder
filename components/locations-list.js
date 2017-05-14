@@ -15,13 +15,26 @@ class LocationsList extends Component {
     };
   }
 
-  async componentDidMount() {
+  async componentWillMount() {
     await navigator.geolocation.getCurrentPosition(
       async (position) => {
         const data = await APIController.get_near_locations(position.coords.latitude, position.coords.longitude);
-        this.setState({ locations: data.results });
+        const formattedData = data.results.reduce((result, location) => {
+          // format data
+          const formatted = {};
+          formatted.name = location.name;
+          formatted.rating = location.rating;
+          formatted.address = location.formatted_address;
+          formatted.price = location.price_level;
+          formatted.photo = APIController.build_photo_request(location.photos[0].photo_reference);
+          // filter results
+
+          result.push(formatted);
+          return result;
+        }, []);
+        this.setState({ locations: formattedData });
       },
-      error => this.setState({ initialLocation: error }),
+      error => this.setState({ initialLocation: [{ name: error }] }),
       { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
     );
   }
