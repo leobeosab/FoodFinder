@@ -54,6 +54,13 @@ class LocationsList extends Component {
 
 LocationsList.navigationOptions = {
   title: 'Food Finder',
+  headerStyle: {
+    backgroundColor: '#134074',
+  },
+  headerTitleStyle: {
+    color: '#EEF4ED',
+    alignSelf: 'center',
+  },
 };
 
 export default LocationsList;
