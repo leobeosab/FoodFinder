@@ -4,4 +4,10 @@ React Native app built to leverage the Google Places API. Users will fill set ce
 
 ## Tools:
 * React Native
-* ESLint ( Air BNB ) 
+* ESLint ( Air BNB )
+
+## How to Build:
+1. Clone source into desired directory
+2. `npm install`
+3. In new terminal: `react-native start`
+4. `react-native run-android` or  `react-native run-ios`
