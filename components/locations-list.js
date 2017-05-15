@@ -28,7 +28,7 @@ class LocationsList extends Component {
           formatted.price = location.price_level;
           formatted.photo = APIController.build_photo_request(location.photos[0].photo_reference);
           // filter results
-
+          console.log(formatted.photo);
           result.push(formatted);
           return result;
         }, []);
