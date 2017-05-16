@@ -11,7 +11,7 @@ const APIController = {
     }).then(result => result.json()
     .then(json => json))),
   build_photo_request: photoReference =>
-  `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoReference}&key=${APIKey}`,
+  `https://maps.googleapis.com/maps/api/place/photo?maxwidth=200&photoreference=${photoReference}&key=${APIKey}`,
 };
 
 export default APIController;
