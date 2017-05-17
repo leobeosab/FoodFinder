@@ -13,16 +13,28 @@ const styles = StyleSheet.create({
     marginTop: 10,
     height: 100,
     backgroundColor: '#fff',
+    borderRadius: 2.5,
+    elevation: 2,
   },
   previewImage: {
-    flex: 1,
-    alignSelf: 'flex-start',
-    justifyContent: 'flex-start',
+    borderRadius: 75,
+    width: 75,
+    height: 75,
+    justifyContent: 'center',
+    alignSelf: 'center',
+    marginLeft: 5,
+    marginRight: 5,
+    borderWidth: 3,
+    borderColor: '#134074',
   },
   textContainer: {
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
+  },
+  title: {
+    fontWeight: 'bold',
+    color: '#333',
   },
 });
 
@@ -31,7 +43,7 @@ const Place = ({ location }) => (
     <Image
       source={{ uri: location.photo }}
       style={styles.previewImage}
-      resizeMode={'contain'}
+      resizeMode={'cover'}
     />
     <View style={styles.textContainer}>
       <Text> { location.name } </Text>
